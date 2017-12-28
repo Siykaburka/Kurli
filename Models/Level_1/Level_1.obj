@@ -1,10 +1,10 @@
 # MagicaVoxel @ Ephtracy
 
 # group
-g 1Level
+g Level_1
 
 # material
-mtllib 1Level.mtl
+mtllib Level_1.mtl
 usemtl palette
 
 # normals
