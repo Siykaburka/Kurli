@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour {
     EnemyStates state;
     RaycastHit hit;
     bool isAttack; //атакуешь ли
-    bool isWalk;
     public Text nameEn;
     public Text hpEnemy;
     public EnemyStates EnST;
@@ -29,20 +28,21 @@ public class PlayerController : MonoBehaviour {
         swordAnim = GameObject.FindWithTag("Weapon").GetComponent<Animator>();
         nameEn.enabled = false;
         hpEnemy.enabled = false;
+        
     }
 	
 	// Update is called once per frame
 	void Update () {
 
+        
+
         if (controller.velocity != Vector3.zero)
         {
-            isWalk = true;
             swordAnim.SetBool("idle", false);
             swordAnim.SetBool("walk", true);
         }
         else
         {
-            isWalk = false;
             swordAnim.SetBool("idle", true);
             swordAnim.SetBool("walk", false);
         }

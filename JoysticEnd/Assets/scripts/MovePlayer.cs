@@ -10,17 +10,49 @@ public class MovePlayer : MonoBehaviour {
     Vector3 direction;
     float x;
     float y;
+    Vector3 startPos;
+    GiveCollor scripCol;
+    public GameObject alphObj;
+    AudioSource audio;
+    public AudioClip step;
 
 
-	void Start () {
-
+    void Start () {
+        scripCol = alphObj.GetComponent<GiveCollor>();
+        alphObj.SetActive(false);
         controller = GetComponent<CharacterController>();
-
-	}
+        startPos = transform.position;
+        audio = GetComponent<AudioSource>();
+        audio.playOnAwake = false;
+        audio.loop = false;
+    }
 
     private void Update()
     {
-        if(controller.isGrounded)
+        if (transform.position.y <= 6)
+        {
+            StartCoroutine(darkPan());
+            audio.Stop();
+        }
+
+        if (controller.velocity != Vector3.zero)
+        {
+            if(!audio.isPlaying)
+            {
+                RaycastHit hit1;
+                if(Physics.Raycast(transform.position + Vector3.up, -Vector3.up, out hit1, 1 ))
+                {
+                    if (hit1.collider.tag == "ground")
+                    {
+                        audio.clip = step;
+                    }
+                    audio.Play();
+                }
+
+            }
+        }
+
+        if (controller.isGrounded)
         {
             direction = new Vector3(x, 0, y);
             direction = transform.TransformDirection(direction) * speedMove;
@@ -35,6 +67,17 @@ public class MovePlayer : MonoBehaviour {
     {
         x = dir.x;
         y = dir.y;
+    }
+
+    IEnumerator darkPan()
+    {
+        alphObj.SetActive(true);
+        scripCol.checkColor = true;
+        yield return new WaitForSeconds(1);
+        transform.position = startPos;
+        scripCol.checkColor = false;
+        yield return new WaitForSeconds(1.2f);
+        alphObj.SetActive(false);
     }
 
 
