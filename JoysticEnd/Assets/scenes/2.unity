@@ -2252,7 +2252,10 @@ MonoBehaviour:
   speedMove: 4.5
   GravityForce: 3.4
   alphObj: {fileID: 396592223}
-  step: {fileID: 8300000, guid: bc8c1f0b8f95e8943a7ebaeb1f2dce78, type: 3}
+  step:
+  - {fileID: 8300000, guid: bc8c1f0b8f95e8943a7ebaeb1f2dce78, type: 3}
+  - {fileID: 8300000, guid: 776c6926a511b414bb92b7f8580fb541, type: 3}
+  - {fileID: 8300000, guid: ff8824ab7f1bc094d967891e32006674, type: 3}
 --- !u!114 &896347629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3917,6 +3920,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114165582920748220, guid: d0beebc666711434e9074bc43cf0fcfb,
+        type: 2}
+      propertyPath: mobsSounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4620747154358182, guid: d0beebc666711434e9074bc43cf0fcfb, type: 2}
       propertyPath: m_LocalPosition.x
       value: -6.250554
@@ -3949,12 +3957,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 82174889422793792, guid: d0beebc666711434e9074bc43cf0fcfb,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 114165582920748220, guid: d0beebc666711434e9074bc43cf0fcfb,
         type: 2}
-      propertyPath: ragDoll
+      propertyPath: mobsSounds.Array.data[0]
       value: 
-      objectReference: {fileID: 1564900662885076, guid: ab0ded31064250f4fb81571fd5d86833,
-        type: 2}
+      objectReference: {fileID: 8300000, guid: ff8824ab7f1bc094d967891e32006674, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0beebc666711434e9074bc43cf0fcfb, type: 2}
   m_IsPrefabParent: 0

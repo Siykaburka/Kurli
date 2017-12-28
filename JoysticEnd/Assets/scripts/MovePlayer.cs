@@ -14,7 +14,7 @@ public class MovePlayer : MonoBehaviour {
     GiveCollor scripCol;
     public GameObject alphObj;
     AudioSource audio;
-    public AudioClip step;
+    public AudioClip[] step;
 
 
     void Start () {
@@ -29,10 +29,14 @@ public class MovePlayer : MonoBehaviour {
 
     private void Update()
     {
-        if (transform.position.y <= 0)
+        if (transform.position.y <= -0.5f)
         {
             StartCoroutine(darkPan());
-            audio.Stop();
+            audio.clip = step[1];
+        }
+        else
+        {
+            audio.clip = step[0];
         }
 
         if (controller.velocity != Vector3.zero)
@@ -44,7 +48,7 @@ public class MovePlayer : MonoBehaviour {
                 {
                     if (hit1.collider.tag == "ground")
                     {
-                        audio.clip = step;
+                        audio.clip = step[0];
                     }
                     audio.Play();
                 }

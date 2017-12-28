@@ -8,13 +8,18 @@ public class EnemyStates : MonoBehaviour {
     public float curEnemyLife;
     float damage;
     public GameObject ragDoll;
+    AudioSource audio;
+    public AudioClip[] mobsSounds;
 
 
-	
-	void Start () {
+    void Start () {
 
         curEnemyLife = EnemyLife;
-	}
+
+        audio = GetComponent<AudioSource>();
+        audio.playOnAwake = false;
+        audio.loop = false;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -22,6 +27,8 @@ public class EnemyStates : MonoBehaviour {
         if(curEnemyLife <=0)
         {
             Dead();
+            audio.clip = mobsSounds[1];
+            audio.Play();
         }
 
 	}
@@ -29,12 +36,14 @@ public class EnemyStates : MonoBehaviour {
     public void GetDamage(float dmg)
     {
         curEnemyLife -= dmg;
+        audio.clip = mobsSounds[0];
+        audio.Play();
     }
 
     void Dead()
     {
         GameObject rd = Instantiate(ragDoll, transform.position, transform.rotation);
-        Destroy(gameObject);
+        Destroy(gameObject,1.5f);
         Destroy(rd, 5);
     }
 

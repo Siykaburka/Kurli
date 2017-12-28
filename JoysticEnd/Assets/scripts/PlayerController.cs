@@ -51,9 +51,8 @@ public class PlayerController : MonoBehaviour {
         Debug.DrawRay(ray.origin, ray.direction * 3f, Color.green);
         if (Physics.Raycast(ray, out hit, 3))
         {
-            if (hit.collider.gameObject.tag == ("Enemy")) //&& controller.velocity == Vector3.zero)
+            if (hit.collider.gameObject.tag == ("Enemy")) 
             {
-                //swordAnim.SetBool("attack", true);
                 swordAnim.SetBool("walk", false);
 
                 if (!isAttack)
@@ -93,7 +92,7 @@ public class PlayerController : MonoBehaviour {
         swordAnim.SetBool("attack", false);
         swordAnim.SetBool("idle", true);
         state.GetDamage(UnityEngine.Random.Range(Damage, Damage + 3));
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(1);
         isAttack = false;
 
     }
