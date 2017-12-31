@@ -1246,7 +1246,6 @@ MonoBehaviour:
   ragDoll: {fileID: 1564900662885076, guid: ab0ded31064250f4fb81571fd5d86833, type: 2}
   mobsSounds:
   - {fileID: 8300000, guid: ff8824ab7f1bc094d967891e32006674, type: 3}
-  - {fileID: 8300000, guid: 744d281585841624ea920d44c1031219, type: 3}
 --- !u!114 &114771951851726390
 MonoBehaviour:
   m_ObjectHideFlags: 1

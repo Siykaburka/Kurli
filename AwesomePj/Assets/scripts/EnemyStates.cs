@@ -27,8 +27,6 @@ public class EnemyStates : MonoBehaviour {
         if(curEnemyLife <=0)
         {
             Dead();
-            audio.clip = mobsSounds[1];
-            audio.Play();
         }
 
 	}
@@ -43,7 +41,7 @@ public class EnemyStates : MonoBehaviour {
     void Dead()
     {
         GameObject rd = Instantiate(ragDoll, transform.position, transform.rotation);
-        Destroy(gameObject,1.5f);
+        Destroy(gameObject);
         Destroy(rd, 5);
     }
 
