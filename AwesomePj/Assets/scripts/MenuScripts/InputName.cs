@@ -20,7 +20,6 @@ public class InputName : MonoBehaviour {
         else
         {
             PanelWithNameInput.SetActive(false);
-            Debug.Log("Хеллоу, " + PlayerPrefs.GetString("Name"));
             welcomePanel.SetActive(true);
             PlayerPrefs.Save();
         }
@@ -34,7 +33,6 @@ public class InputName : MonoBehaviour {
             PanelWithNameInput.SetActive(false);
             PlayerPrefs.Save();
             welcomePanel.SetActive(true);
-            Debug.Log("Хеллоу, " + PlayerPrefs.GetString("Name"));
         }
         else
         {
