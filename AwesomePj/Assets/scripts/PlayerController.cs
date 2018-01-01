@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour {
     EnemyStates state;
     RaycastHit hit;
     bool isAttack; //атакуешь ли
-    bool isWalk;
     public Text nameEn;
     public Text hpEnemy;
     public EnemyStates EnST;
@@ -36,13 +35,11 @@ public class PlayerController : MonoBehaviour {
 
         if (controller.velocity != Vector3.zero)
         {
-            isWalk = true;
             swordAnim.SetBool("idle", false);
             swordAnim.SetBool("walk", true);
         }
         else
         {
-            isWalk = false;
             swordAnim.SetBool("idle", true);
             swordAnim.SetBool("walk", false);
         }
