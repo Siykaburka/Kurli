@@ -6,13 +6,18 @@ using UnityEngine.UI;
 public class InputName : MonoBehaviour {
 
     public InputField Infield;
-    public GameObject PanelWithNameInput;
+    GameObject PanelWithNameInput;
     public Text error;
-    public GameObject welcomePanel;
+    GameObject welcomePanel;
 
 	// Use this for initialization
 	void Start () {
+        PlayerPrefs.DeleteAll();
+        welcomePanel = GameObject.Find("WelcomePanel");
+        PanelWithNameInput = GameObject.Find("InputNamePanel");
         welcomePanel.SetActive(false);
+        
+
         if (!PlayerPrefs.HasKey("Name") || PlayerPrefs.GetString("Name").Length <=2)
         {
             PanelWithNameInput.SetActive(true);
