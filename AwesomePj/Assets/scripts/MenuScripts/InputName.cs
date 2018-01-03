@@ -8,14 +8,14 @@ public class InputName : MonoBehaviour {
     public InputField Infield;
     GameObject PanelWithNameInput;
     public Text error;
-    GameObject welcomePanel;
+    GameObject GlavPanel;
 
 	// Use this for initialization
 	void Start () {
         PlayerPrefs.DeleteAll();
-        welcomePanel = GameObject.Find("WelcomePanel");
+        GlavPanel = GameObject.Find("GlavMenu");
         PanelWithNameInput = GameObject.Find("InputNamePanel");
-        welcomePanel.SetActive(false);
+        GlavPanel.SetActive(false);
         
 
         if (!PlayerPrefs.HasKey("Name") || PlayerPrefs.GetString("Name").Length <=2)
@@ -25,7 +25,7 @@ public class InputName : MonoBehaviour {
         else
         {
             PanelWithNameInput.SetActive(false);
-            welcomePanel.SetActive(true);
+            GlavPanel.SetActive(true);
             PlayerPrefs.Save();
         }
     }
@@ -37,7 +37,7 @@ public class InputName : MonoBehaviour {
             PlayerPrefs.SetString("Name", Infield.text);
             PanelWithNameInput.SetActive(false);
             PlayerPrefs.Save();
-            welcomePanel.SetActive(true);
+            GlavPanel.SetActive(true);
         }
         else
         {
