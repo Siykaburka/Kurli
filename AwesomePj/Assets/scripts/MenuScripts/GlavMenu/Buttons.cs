@@ -4,36 +4,40 @@ using UnityEngine;
 
 public class Buttons : MonoBehaviour {
 
-    GameObject glavMenu;
+    public GameObject glavMenu;
     public GameObject ChooseLvlsPanel;
     public GameObject SettingsPanel;
     public GameObject InfoPanel;
 
     public void Awake()
     {
-        glavMenu = GameObject.Find("GlavMenu");
+       // glavMenu = GameObject.Find("GlavMenu");
+       // glavMenu.SetActive(true);
     }
 
     public void Start()
     {
-        glavMenu = GameObject.Find("GlavMenu");
-        if (glavMenu == null) return;
+       // glavMenu = GameObject.Find("GlavMenu");
+       // if (glavMenu == null) return;
     }
 
     public void ONchooselvls()
     {
+        glavMenu = GameObject.Find("GlavMenu");
         glavMenu.SetActive(false);
         ChooseLvlsPanel.SetActive(true);
     }
 
     public void ONsettings()
     {
+        glavMenu = GameObject.Find("GlavMenu");
         glavMenu.SetActive(false);
         SettingsPanel.SetActive(true);
     }
 
     public void ONInfo()
     {
+        glavMenu = GameObject.Find("GlavMenu");
         glavMenu.SetActive(false);
         InfoPanel.SetActive(true);
     }
